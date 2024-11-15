@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Railway Station </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-start: #6e07f3;
+            --gradient-end: #b70fec;
+            --accent-color: #00ff00;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); */
+            background-image: url('https://images.unsplash.com/photo-1495313196544-7d1adf4e628f?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        .hero-content {
+            width: 50%;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: black;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .hero-image {
+            width: 40%;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            animation: float 6s ease-in-out infinite;
+            border-radius: 50px;
+            /* border: 13px grove linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.7;
+            animation: floatElement 10s infinite linear;
+        }
+        .logout-button {
+            background-color: #ff3366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background-color: #ff1a1a;
+        }
+
+        .user-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @keyframes floatElement {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            /* position: absolute; */
+            /* bottom: 0; */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Indian Railway Station</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="trainSearch.html">Train details</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#portfolio">Announcements</a></li>
+                    <li><a href="contactspage.html">Contact</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <button class="logout-button" onclick="logout()">Logout</button>
+            </div>
+        </header>
+        <hr>
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>"The voice translation tool helps break language barriers with real-time audio translations."</h1>
+                    <p>Tap start to start your conversation </p>
+                    <a href="#" class="cta-button">Start</a>
+                </div>
+                <div class="hero-image">
+                    <img src="hello.avif" alt="SEO optimization illustration">
+                    <div class="floating-elements"></div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Nature's Railway. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const floatingElements = document.querySelector('.floating-elements');
+            const shapes = ['▲', '■', '●', '◆'];
+            const colors = ['#ff9900', '#00ffcc', '#ff3366', '#9933ff'];
+
+            for (let i = 0; i < 10; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                element.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                element.style.color = colors[Math.floor(Math.random() * colors.length)];
+                element.style.fontSize = `${Math.random() * 20 + 10}px`;
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                element.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                floatingElements.appendChild(element);
+            }
+        });
+        function checkAuth() {
+            if (!localStorage.getItem('isLoggedIn')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+
+        // Check authentication when page loads
+        window.onload = function() {
+            checkAuth();
+            // Your existing onload code for floating elements
+            const floatingElements = document.querySelector('.floating-elements');
+            // ... (rest of your floating elements code)
+        }
+    </script>
+</body>
+</html>

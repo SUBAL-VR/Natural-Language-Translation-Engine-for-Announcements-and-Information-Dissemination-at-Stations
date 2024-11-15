@@ -1,0 +1,83 @@
+import React from 'react';
+import { Search, ArrowRight, Train, Clock, Ticket, Map, Info, CreditCard, HelpCircle, MessageSquare } from 'lucide-react';
+
+const RailwayFAQ = () => {
+  return (
+    <div className="bg-blue-50 min-h-screen">
+      <header className="bg-blue-600 text-white p-4">
+        <nav className="flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <Train size={24} />
+            <span className="font-bold text-xl">RailwayInfo</span>
+          </div>
+          <div className="space-x-4">
+            <a href="#" className="hover:underline">Home</a>
+            <a href="#" className="hover:underline">Schedules</a>
+            <a href="#" className="hover:underline">Tickets</a>
+            <a href="#" className="hover:underline">About</a>
+            <button className="bg-white text-blue-600 px-4 py-2 rounded-full font-bold">
+              Book Now
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <main className="container mx-auto p-8">
+        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <h1 className="text-3xl font-bold text-blue-600 mb-4">
+            Looking for help? Here are our most frequently asked questions.
+          </h1>
+          <p className="text-gray-600 mb-4">
+            Everything you need to know about our railway services. Can't find the answer to a question you have? No worries, just click 'I've got a question' or 'Chat to our team'!
+          </p>
+          <div className="flex items-center bg-gray-100 rounded-full px-4 py-2 mb-6">
+            <Search className="text-gray-400 mr-2" />
+            <input
+              type="text"
+              placeholder="Search FAQs"
+              className="bg-transparent outline-none flex-grow"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <button className="flex items-center justify-between bg-blue-600 text-white rounded-lg px-6 py-3 hover:bg-blue-700 transition">
+              I've got a question
+              <ArrowRight />
+            </button>
+            <button className="flex items-center justify-between bg-blue-600 text-white rounded-lg px-6 py-3 hover:bg-blue-700 transition">
+              Chat to our team
+              <ArrowRight />
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          {[
+            { icon: <Train />, title: "Train Schedules", description: "Find up-to-date timetables and live train times" },
+            { icon: <Ticket />, title: "Booking Tickets", description: "How to book and manage your train tickets" },
+            { icon: <Map />, title: "Station Information", description: "Maps and facilities at our stations" },
+            { icon: <Clock />, title: "Delays & Cancellations", description: "What to do if your train is delayed or cancelled" },
+            { icon: <CreditCard />, title: "Fares & Refunds", description: "Ticket prices and refund policies" },
+            { icon: <Info />, title: "Travel Information", description: "Luggage, accessibility, and onboard services" },
+            { icon: <HelpCircle />, title: "Customer Support", description: "How to get help during your journey" },
+            { icon: <MessageSquare />, title: "Feedback", description: "Share your thoughts to help us improve" }
+          ].map((item, index) => (
+            <div key={index} className="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center">
+              <div className="text-blue-600 mb-4">
+                {item.icon}
+              </div>
+              <h3 className="font-bold mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-600">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-blue-600 text-white rounded-lg shadow-lg p-8">
+          <h2 className="text-2xl font-bold mb-4">General FAQs</h2>
+          <p>Everything you need to know about our railway services. Can't find an answer? Chat to our team.</p>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default RailwayFAQ;

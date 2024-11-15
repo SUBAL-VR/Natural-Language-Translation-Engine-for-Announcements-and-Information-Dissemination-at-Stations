@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature's Railway - Train Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .bg-image {
+            background-image: url('https://images.unsplash.com/photo-1495313196544-7d1adf4e628f?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .content {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .form-control, .btn-primary {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+        }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .btn-primary {
+            background-color: #ffd700;
+            color: #000;
+        }
+        .train-table {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .train-table th, .train-table td {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-8 offset-md-2">
+                    <div class="content">
+                        <h1 class="text-center">Nature's Railway</h1>
+                        <p class="text-center mb-4">Discover the beauty of train journeys through nature</p>
+                        
+                        <form id="searchForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="trainName" placeholder="Enter Train Name or Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="station" placeholder="Enter Station" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Search Trains</button>
+                        </form>
+
+                        <div class="mt-4">
+                            <h3 class="text-center mb-3">Train Schedule</h3>
+                            <table class="table train-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Train Name</th>
+                                        <th>Train Number</th>
+                                        <th>Arrival Time</th>
+                                        <th>Departure Time</th>
+                                        <th>Platform</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trainSchedule">
+                                    <!-- Train schedule details will be injected here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2024 Nature's Railway. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample train data for simulation
+        const trainData = [
+            {
+                name: "Forest Express",
+                number: "12345",
+                arrival: "10:00 AM",
+                departure: "10:15 AM",
+                platform: 5
+            },
+            {
+                name: "Mountain View",
+                number: "54321",
+                arrival: "11:00 AM",
+                departure: "11:10 AM",
+                platform: 2
+            },
+            {
+                name: "River Route",
+                number: "98765",
+                arrival: "12:30 PM",
+                departure: "12:45 PM",
+                platform: 7
+            }
+        ];
+
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const trainName = document.getElementById('trainName').value.toLowerCase();
+            const station = document.getElementById('station').value.toLowerCase();
+
+            const trainSchedule = document.getElementById('trainSchedule');
+            trainSchedule.innerHTML = '';
+
+            const filteredTrains = trainData.filter(train => 
+                train.name.toLowerCase().includes(trainName) || train.number.includes(trainName)
+            );
+
+            if (filteredTrains.length > 0) {
+                filteredTrains.forEach((train, index) => {
+                    const row = `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${train.name}</td>
+                            <td>${train.number}</td>
+                            <td>${train.arrival}</td>
+                            <td>${train.departure}</td>
+                            <td>${train.platform}</td>
+                        </tr>
+                    `;
+                    trainSchedule.insertAdjacentHTML('beforeend', row);
+                });
+            } else {
+                const row = `
+                    <tr>
+                        <td colspan="6">No trains found for the provided details.</td>
+                    </tr>
+                `;
+                trainSchedule.insertAdjacentHTML('beforeend', row);
+            }
+        });
+    </script>
+</body>
+</html>

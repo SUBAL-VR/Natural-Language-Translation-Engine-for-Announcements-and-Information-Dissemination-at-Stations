@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .contact-section {
+            background-image: url('https://images.unsplash.com/photo-1495313196544-7d1adf4e628f?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .contact-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .contact-info h3 {
+            margin-bottom: 10px;
+        }
+        .contact-info p {
+            margin-bottom: 20px;
+        }
+
+        /* Custom Input Style */
+        .form-group input, .form-group textarea {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #fff;
+            color: white;
+            border-radius:
+            border-radius: 0;
+            outline: none;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-bottom: 2px solid #ffcc00;
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* Custom Button Style */
+        .btn-submit {
+            background-color: #ffcc00;
+            border: none;
+            color: black;
+            padding: 10px 30px;
+        }
+        .btn-submit:hover {
+            background-color: #e6b800;
+        }
+        #name{
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        #email{
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        #address{
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        #message{
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contact-section">
+    <div class="container contact-container">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-md-6 contact-info">
+                <h3>Call Us</h3>
+                <p>9381998797</p>
+                <p>8667077130</p>
+                <h3>Location</h3>
+                <p>121 Cape Street, 21 Avenue, Chennai, IN 92103-9000</p>
+                
+                <h3>Working Hours</h3>
+                <p>Mon - Sun<br>24x7: Open</p>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter a valid email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Any Information</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies (Popper and jQuery) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom Script -->
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form from submitting normally
+        alert('Message submitted successfully!'); // Display popup message
+        document.getElementById('contactForm').reset(); // Clear form fields
+    });
+</script>
+
+</body>
+</html>
